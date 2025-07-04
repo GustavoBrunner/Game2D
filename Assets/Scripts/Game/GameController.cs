@@ -12,12 +12,9 @@ namespace GameController
         {
             base.Awake();
         }
-        private void Update()
+        protected override void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                SceneLoader.Instance.LoadSceneAdditive("SecondScene");
-            }
+            base.Update();
         }
     }
 }

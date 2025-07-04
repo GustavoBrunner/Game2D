@@ -36,4 +36,9 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    protected virtual void Update() {   }
+    protected virtual void Start() {   }
+    protected virtual void LateUpdate() {   }
+    protected virtual void FixedUpdate() {   }
+
 }

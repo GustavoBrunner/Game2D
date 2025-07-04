@@ -23,11 +23,11 @@ namespace InputSystem
             m_Inputs = new Inputs();
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             GetInputs();
         }
-        
 
         private void GetInputs()
         {
@@ -100,7 +100,7 @@ namespace InputSystem
             }
         }
 
-        #region METHODS
+        #region BOILERPLATE_METHODS
 
         public void SetRunInput(KeyCode key)
         {
