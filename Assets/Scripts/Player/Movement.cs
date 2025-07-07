@@ -1,4 +1,3 @@
-using InputSystem;
 using UnityEngine;
 
 namespace Player
@@ -6,13 +5,16 @@ namespace Player
     public class Movement : PhysicsController
     {
         Vector2 m_Position;
-        Vector2 m_Direction;
+        public Vector2 Direction { get; private set; }
         Rigidbody2D m_Rigidbody;
-        float m_XAxis;
-        float m_YAxis;
+        [SerializeField] float m_XAxis;
+        [SerializeField] float m_YAxis;
 
         [SerializeField] private float Speed = 5f;
 
+        private Dash m_Dash;
+
+        public Vector2 VelocityDebug;
         protected override void Awake()
         {
             base.Awake();
@@ -22,25 +24,26 @@ namespace Player
         protected override void Update()
         {
             base.Update();
+            if(m_Dash.IsDashing)
+                return;
             Move();
+            
         }
 
         private void Move()
         {
             m_XAxis = Input.GetAxisRaw("Horizontal");
             m_YAxis = Input.GetAxisRaw("Vertical");
-            m_Direction = new Vector2(m_XAxis, m_YAxis).normalized;
-            if (m_Direction != Vector2.zero)
-            {
-                m_Position += m_Direction * (Speed * Time.deltaTime);
-                transform.position = m_Position;
-            }
+            Direction = new Vector2(m_XAxis, m_YAxis).normalized;
+            Rb.velocity = Direction * Speed;
+            VelocityDebug = Rb.velocity;
         }
 
         private void InitialConfigs()
         {
             m_Rigidbody = GetComponent<Rigidbody2D>();
-            
+            m_Dash = GetComponent<Dash>();
+
             m_Rigidbody.freezeRotation = true;
             m_Rigidbody.gravityScale = 0f;
         }

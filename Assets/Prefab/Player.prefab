@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1164038256852671147}
   - component: {fileID: 5148735771991610803}
   - component: {fileID: 6958518892732059883}
+  - component: {fileID: 7660482303115640768}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -61,7 +62,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 3
+  m_Constraints: 0
 --- !u!61 &5148735771991610803
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,7 +120,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da15dcb2fbbdd84cb7b61ab38306f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_XAxis: 0
+  m_YAxis: 0
   Speed: 5
+  VelocityDebug: {x: 0, y: 0}
+--- !u!114 &7660482303115640768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480460884536162033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee97ad3d1f81874a9f44ed81498a6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DashDirection: {x: 0, y: 0}
+  m_DashSpeed: 10
+  m_DashDuration: 0.4
+  m_DashCooldown: 1
+  m_LastDashTime: 0
 --- !u!1 &8419455638368238831
 GameObject:
   m_ObjectHideFlags: 0

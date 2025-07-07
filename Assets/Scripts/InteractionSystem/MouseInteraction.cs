@@ -11,7 +11,6 @@ namespace InteractionSystem
 
         public Transform PlayerTf { get => FindAnyObjectByType<Movement>().transform; }
 
-
         private void Update()
         {
             InteractionSensor();
