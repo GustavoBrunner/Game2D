@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +8,7 @@ namespace SceneManagement
     {
         private readonly HashSet<string> m_loadedScenes = new();
         public HashSet<string> LoadedScenes { get => m_loadedScenes; }
+
         protected override void Awake()
         {
             base.Awake();
@@ -68,5 +67,42 @@ namespace SceneManagement
                 return null;
             }
         }
+
+        public string UnloadSceneAsync(string sceneName) 
+        {
+            if (string.IsNullOrEmpty(sceneName))
+            {
+                Debug.LogError("Scene name cannot be null or empty.");
+                return null;
+            }
+            if (!m_loadedScenes.Contains(sceneName))
+            {
+                Debug.LogWarning($"Scene '{sceneName}' is not loaded.");
+                return null;
+            }
+            AsyncOperation asyncOperation = SceneManager.UnloadSceneAsync(sceneName);
+            if (asyncOperation != null)
+            {
+                asyncOperation.completed -= (operation) => { 
+                    if (operation.isDone)
+                    {
+                        m_loadedScenes.Remove(sceneName);
+                        Debug.Log($"Scene '{sceneName}' unloaded successfully.");
+                    }
+                    else
+                    {
+                        Debug.LogError($"Failed to unload scene '{sceneName}'.");
+                    }
+                    
+                };
+                return sceneName;
+            }
+            else
+            {
+                Debug.LogError($"Failed to start unloading scene '{sceneName}'.");
+                return null;
+            }
+        }
+
     }
 }

@@ -25,7 +25,8 @@ namespace CameraController
             {
                 Vector3 newPos = m_target.position;
                 newPos.z = transform.position.z;
-                transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * m_speed);
+                transform.position = Vector3.Lerp(
+                    transform.position, newPos, Time.deltaTime * m_speed);
             }
         }
     }
