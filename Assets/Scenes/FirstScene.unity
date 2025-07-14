@@ -436,6 +436,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4f8dbb818fa08284f8f0b5c05d4886a4, type: 2}
+    - target: {fileID: 7559434873535094322, guid: c5c2fd981c8f1e844894d4305785f19d, type: 3}
+      propertyPath: m_Constraints
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8374444611048770406, guid: c5c2fd981c8f1e844894d4305785f19d, type: 3}
       propertyPath: m_Name
       value: InteractableObject
