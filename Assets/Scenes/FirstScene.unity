@@ -461,6 +461,14 @@ PrefabInstance:
       propertyPath: ClockSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2011884171098014331, guid: 59163d2c1d09eb5419efdb10f2368102, type: 3}
+      propertyPath: HourEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011884171098014331, guid: 59163d2c1d09eb5419efdb10f2368102, type: 3}
+      propertyPath: HourEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7307085667838116946, guid: 59163d2c1d09eb5419efdb10f2368102, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

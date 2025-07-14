@@ -9,7 +9,7 @@ namespace Npc
         e ainda não ter terminado sua rota, ele será teleportado para outra cena, onde continuará sua rota.
         - Follow: o npc irá seguir o player, mas não irá atacar ele. Ele irá apenas seguir o player.
         - GoSleep: o npc irá dormir, e acordará após um tempo. Ele irá trocar a animação dele de tempos em tempos.
-
+        
     */
 
     public enum NpcState 

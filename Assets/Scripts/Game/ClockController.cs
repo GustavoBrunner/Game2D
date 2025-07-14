@@ -7,9 +7,9 @@ namespace Game.Clock
 {
     public class ClockController : MonoBehaviour
     {
-        [SerializeField] private int Hours = 0;
-        [SerializeField] private int Minutes = 0;
-        [SerializeField] private int Day = 0;
+        [SerializeField] private int m_Hours = 0;
+        [SerializeField] private int m_Minutes = 0;
+        [SerializeField] private int m_Day = 0;
 
         [SerializeField] private float ClockSpeed = 1f;
 
@@ -32,6 +32,10 @@ namespace Game.Clock
             } 
         }
 
+        public int Hours { get => m_Hours; }
+        public int Minutes { get => m_Minutes;}
+        public int Day { get => m_Day;}
+
         private void LateUpdate()
         {
             if (Input.GetKeyUp(KeyCode.O))
@@ -44,17 +48,17 @@ namespace Game.Clock
             while (m_isClockRunning)
             {
                 yield return new WaitForSeconds(1f/ClockSpeed);
-                Minutes++;
-                if (Minutes >= 60)
+                m_Minutes++;
+                if (m_Minutes >= 60)
                 {
-                    Minutes = 0;
-                    Hours++;
+                    m_Minutes = 0;
+                    m_Hours++;
                     HourEvent?.Invoke();
                 }
-                if (Hours >= 24)
+                if (m_Hours >= 24)
                 {
-                    Hours = 0;
-                    Day++;
+                    m_Hours = 0;
+                    m_Day++;
                     DayEvent?.Invoke();
                 }
             }
