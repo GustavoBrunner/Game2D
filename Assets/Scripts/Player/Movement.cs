@@ -10,7 +10,7 @@ namespace Player
         [SerializeField] float m_XAxis;
         [SerializeField] float m_YAxis;
 
-        [SerializeField] private float Speed = 5f;
+        [SerializeField] private float m_Speed = 5f;
 
         private Dash m_Dash;
 
@@ -35,7 +35,7 @@ namespace Player
             m_XAxis = Input.GetAxisRaw("Horizontal");
             m_YAxis = Input.GetAxisRaw("Vertical");
             Direction = new Vector2(m_XAxis, m_YAxis).normalized;
-            Rb.velocity = Direction * Speed;
+            Rb.velocity = Direction * m_Speed;
             VelocityDebug = Rb.velocity;
         }
 
