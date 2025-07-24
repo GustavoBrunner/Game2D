@@ -1,5 +1,6 @@
 using InputSystem;
 using UnityEngine;
+using Weapons;
 
 namespace Player {
     public class Attack : MonoBehaviour {
@@ -13,7 +14,7 @@ namespace Player {
 
         [SerializeField] Animator m_WeaponAnimation;
 
-        [SerializeField] Weapon m_equippedWeapon;
+        [SerializeField] WeaponController m_equippedWeapon;
 
 
         private void Update() {
